@@ -31,13 +31,17 @@
 ### ⚙️ Pré-requisitos
 
 * **Python 3:** Necessário para executar o script. A biblioteca Tkinter geralmente já vem incluída no Windows. [Download Python](https://www.python.org/downloads/)
+*  **`yt-dlp.exe` e `ffmpeg.exe` (Já Incluídos):** As dependências essenciais já estão presentes na pasta `DEPENDENCIAS` na estrutura correta. O script principal se encarrega de atualizar o `yt-dlp.exe` automaticamente. Só é necessário baixar/atualizar manualmente se o programa apresentar erros persistentes.
 * **`yt-dlp.exe`:** O "cérebro" do download. **Deve** estar na pasta `DEPENDENCIAS`. [Download yt-dlp.exe](https://github.com/yt-dlp/yt-dlp/releases/latest)
-* **`ffmpeg.exe`:** Essencial para converter áudio (MP3/AAC) e juntar arquivos. **Deve** estar na subpasta correta dentro de `DEPENDENCIAS`. [Download FFmpeg (Builds Gyan.dev)](https://www.gyan.dev/ffmpeg/builds/) (Baixe `ffmpeg-release-essentials.zip` ou `full.zip`, extraia e copie o conteúdo da pasta `bin`).
+* **`ffmpeg.exe`:** Essencial para converter áudio (MP3/AAC) e juntar arquivos. **Deve** estar na subpasta correta dentro de `DEPENDENCIAS`. [Download FFmpeg (Builds Gyan.dev)](https://www.gyan.dev/ffmpeg/builds/) (Baixe (Caso necessário) `ffmpeg-release-essentials.zip` ou `full.zip`, extraia e copie o conteúdo da pasta `bin`).
 
 ### 🔧 Instalação e Estrutura de Pastas
 
 1.  **Baixe ou Clone:** Obtenha os arquivos do projeto.
-2.  **Crie a Estrutura (CRÍTICO!):** Organize as pastas e arquivos **exatamente** assim:
+2. **Rode o Código**  
+   As dependências essenciais já estão presentes na pasta `DEPENDENCIAS`, organizadas na estrutura correta.  
+   Só será necessário baixar, atualizar ou ajustar manualmente a estrutura do projeto **caso o programa apresente erros**.  
+   Se isso ocorrer, organize as pastas e arquivos **exatamente** da seguinte forma:
 
     ```
     YOUTUBE VIDEO BAIXAR/   <-- Pasta principal (ou o nome que preferir)
@@ -56,20 +60,41 @@
 
 ### 🚀 Como Executar
 
+Existem duas formas principais:
+
+1. **Configure o `.bat` (Apenas na primeira vez ou se mover a pasta):**  
+   * Vá até a pasta `ATALHO`.  
+   * Clique com o botão direito no arquivo `BAIXAR VIDEO YOUTUBE.bat` e escolha **“Editar no Bloco de Notas”**.  
+   * **Verifique o caminho do script:**  
+     A segunda linha (`cd /d`) deve apontar para a pasta *exata* onde está localizado o seu script `youtubeTetse.py`.  
+     Se você moveu a pasta `YOUTUBE VIDEO BAIXAR` para outro local (ex: `D:\Projetos`), ajuste esse caminho.  
+     **Exemplo:**  
+     ```
+     C:\Users\jgabr\Downloads\YOUTUBE VIDEO BAIXAR\SCRIPT
+     ```
+   * Caso altere o nome do script, modifique também a terceira linha (`python youtubeTetse.py`) para o novo nome.  
+     **Exemplo:**  
+     ```
+     python youtubeTetseDiferente.py
+     ```
+   * Salve e feche o arquivo `.bat`.
+2.  **Crie um Atalho (Opcional, para facilitar):**
+    * Clique com o botão direito no arquivo `BAIXAR VIDEO YOUTUBE.bat` e escolha "Enviar para" > "Área de trabalho (criar atalho)".
+    * Vá até a Área de Trabalho, clique com o botão direito no atalho recém-criado e escolha "Propriedades".
+    * Na aba "Atalho", clique em "Alterar Ícone...".
+    * Clique em "Procurar..." e navegue até a pasta `ATALHO` dentro do projeto.
+    * Selecione o arquivo `3721679-youtube_108064.ico` e clique "Abrir", depois "OK" e "Aplicar".
+3.  **Execute:** Dê dois cliques no arquivo `.bat` (ou no atalho que você criou) para iniciar o aplicativo.
+
+**Método 2: Pelo Terminal**
+
 1.  **Abra o Terminal:** Navegue até a pasta principal (`YOUTUBE VIDEO BAIXAR`) usando o Prompt de Comando ou PowerShell.
 2.  **Execute o Script:** Digite o comando:
     ```bash
     python SCRIPT/youtubeTetse.py
     ```
     *(Ajuste `youtubeTetse.py` se o nome do seu arquivo for diferente)*.
-3.  **Aguarde a Atualização (se houver):** Na primeira vez ou se houver uma nova versão, o `yt-dlp.exe` pode levar alguns segundos para se atualizar (você verá mensagens no terminal).
-4.  **Use o Aplicativo:**
-    * Cole a URL do vídeo do YouTube.
-    * Escolha "Vídeo" ou "Áudio (MP3)".
-    * Se for vídeo, selecione a qualidade desejada.
-    * Clique em "Procurar" para definir onde salvar o arquivo (padrão: pasta Downloads).
-    * Clique em "Baixar".
-
+3.  **Use o Aplicativo:** Siga as instruções na tela (colar URL, escolher opções, baixar).
 ### 💡 Como Funciona (Resumo Técnico)
 
 * **Interface:** Tkinter (biblioteca gráfica padrão do Python).
