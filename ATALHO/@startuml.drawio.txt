@@ -1,0 +1,17 @@
+@startuml
+actor Usuario
+participant "Interface de Interação\n(Report)" as Report
+participant "Autenticação" as Auth
+participant "Usuário" as User
+participant "Sessão"
+
+Usuario -> Report: Clica em 'Reportar Obra'
+Report -> Auth: Verifica autenticação
+Auth --> Report: Usuário autenticado
+Report -> User: Verifica permissões
+User --> Report: Permissão OK
+Report -> Report: Cria objeto de denúncia
+Report -> Sessão: Salva denúncia
+Sessão --> Report: Confirmação
+Report --> Usuario: Denúncia enviada com sucesso
+@enduml
